@@ -15,7 +15,10 @@
                                 <br>
                                 <span class="align-left article-details"><img class="article-author-img rounded-circle" src="{{ asset('images/alien-profile.png') }}"> Mike Ferengi </span>
                                 <span class="pl-2 article-details"> 3 hours ago</span>
-                                <span class="pl-2 article-details"> 5 <a href="#" class="fa fa-heart-o like-article"></a> </span>
+                                <span class="pl-2 article-details">
+                                    <span class="js-like-article-count">5</span>
+                                    <a href="#" class="fa fa-heart-o like-article js-like-article"></a>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -71,17 +74,17 @@
                             </div>
 
                             {% for comment in comments %}
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <img class="comment-img rounded-circle" src="{{ asset('images/alien-profile.png') }}">
-                                    <div class="comment-container d-inline-block pl-3 align-top">
-                                        <span class="commenter-name">Mike Ferengi</span>
-                                        <br>
-                                        <span class="comment">{{ comment }}</span>
-                                        <p><a href="#">Reply</a></p>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <img class="comment-img rounded-circle" src="{{ asset('images/alien-profile.png') }}">
+                                        <div class="comment-container d-inline-block pl-3 align-top">
+                                            <span class="commenter-name">Mike Ferengi</span>
+                                            <br>
+                                            <span class="comment">{{ comment }}</span>
+                                            <p><a href="#">Reply</a></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             {% endfor %}
 
                         </div>
@@ -90,4 +93,10 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('js/article_show.js') }}"></script>
 {% endblock %}
